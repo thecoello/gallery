@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400..700;1,400..700&display=swap");
+html, body {
+  background-color: #fafafa;
+}
+
+* {
+  margin: 0;
+  font-family: "Sometype Mono", monospace;
+}
+
+.container {
+  width: 100vw;
+}
+
+.intro {
+  height: 100vh;
+  width: 100%;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  background-color: #fafafa;
+  overflow: hidden;
+}
+.intro #brand-name-wrap {
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+  top: -25vh;
+}
+.intro #brand-name-wrap #brand-name {
+  text-transform: uppercase;
+  font-size: 15rem;
+  margin: 0;
+  padding: 0;
+  line-height: 15rem;
+}
+.intro .loader-container {
+  position: absolute;
+  top: 50vh;
+  bottom: 50vh;
+  width: 100%;
+  height: 0.1rem;
+  display: flex;
+  background-color: #afafaf;
+}
+.intro .loader-container .loader {
+  width: 0%;
+  height: 0.1rem;
+  background-color: #000000;
+}
+.intro .intro-text {
+  font-size: 20rem;
+}
+
+.portfolio-container {
+  padding: 2.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.portfolio-container .border-top {
+  background-color: #afafaf;
+  width: 100%;
+  height: 0.1rem;
+}
+.portfolio-container .project {
+  opacity: 0;
+  height: -moz-max-content;
+  height: max-content;
+  width: 16.6666666667vw;
+  position: relative;
+  margin: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  cursor: pointer;
+}
+.portfolio-container .project .project-text-wrap {
+  width: 100%;
+  padding: 1rem 0;
+}
+.portfolio-container .project .project-text-wrap .project-title {
+  font-size: 1rem;
+}
+.portfolio-container .project .project-text-wrap .project-type {
+  font-size: 0.8rem;
+  color: #afafaf;
+}
+.portfolio-container .project .project-image {
+  position: relative;
+  width: 16.6666666667vw;
+  height: 16.6666666667vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.portfolio-container .project .project-image img {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */
