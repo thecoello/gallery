@@ -5,9 +5,12 @@ $greyLight: #afafaf;
 
 $borderRadius: 20px;
 
+html{
+    overflow: hidden;
+}
+
 html, body{
     background-color: $light;
-    overflow: hidden;
 }
 
 *{

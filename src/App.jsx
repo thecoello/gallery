@@ -17,7 +17,7 @@ export default class App extends React.Component {
   }
 
   getData(){
-    fetch('./projects.JSON')
+    fetch('./src/assets/projects.json')
     .then(res => res.json())
     .then(data => {
       this.setState({dataProjects: data})
@@ -46,7 +46,7 @@ export default class App extends React.Component {
       img.addEventListener('load', (e) => {
         imagesLoaded = imagesLoaded + 1
         loaded = 100 / imagesAvailable * imagesLoaded
-        gsap.to('.loader', 4, { width: `${loaded}%`, ease: Power2.easeOut, overwrite: true })
+        gsap.to('.loader', 4, { width: `${loaded}%`, ease: Power2.easeInOut, overwrite: true })
 
         if(loaded == 100){
           this.setState({ _imagesLoaded: true })
@@ -59,14 +59,12 @@ export default class App extends React.Component {
   animationStart() {
     let tl = new gsap.timeline()
     tl.set('#brand-name-wrap', { alpha: 1 })
-    tl.to('#brand-name', 1, { y: `${0}vh`, ease: Expo.easeOut, delay: 4.5 })
-    tl.fromTo('.intro', 1, { height: `${100}vh` }, { height: `${25}vh`, ease: Expo.easeOut })
-    tl.to('#brand-name-wrap', 1, { y: 0, delay: -1, ease: Expo.easeOut })
-    tl.to('.loader-container', 1, {y: `${15}vh`, delay: -1, transformOrigin: 'right', ease: Expo.easeOut})
-    tl.fromTo('.project', 1,{ y: 10, alpha: 0},{ y: 0, alpha: 1, ease: Expo.easeInOut, stagger: 0.1, delay: -1.5})
-    gsap.set('html',{overflow: 'auto'})
-    gsap.set('body',{overflow: 'auto'})
-
+    tl.to('#brand-name', 2, { y: `${0}vh`, ease: Expo.easeInOut, delay: 4.5 })
+    tl.fromTo('.intro', 2, { height: `${100}vh` }, { height: `${25}vh`, ease: Expo.easeInOut })
+    tl.to('#brand-name-wrap', 2, { y: 0, delay: -2, ease: Expo.easeInOut })
+    tl.to('.loader-container', 2, {y: `${15}vh`, delay: -2, transformOrigin: 'right', ease: Expo.easeInOut})
+    tl.to('html',{overflow: 'auto'})
+    tl.fromTo('.project', 2,{ y: 10, alpha: 0},{ y: 0, alpha: 1, ease: Expo.easeInOut, stagger: 0.1, delay: -2.5})
   }
 
   projects = () => {
