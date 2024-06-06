@@ -2,77 +2,77 @@
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/1.jpg"
+        "image" : "./images/1.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/2.jpg"
+        "image" : "./images/2.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/3.jpg"
+        "image" : "./images/3.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/4.jpg"
+        "image" : "./images/4.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/5.jpg"
+        "image" : "./images/5.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/6.jpg"
+        "image" : "./images/6.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/7.jpg"
+        "image" : "./images/7.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/8.jpg"
+        "image" : "./images/8.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/9.jpg"
+        "image" : "./images/9.jpg"
     }
     ,
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/10.jpg"
+        "image" : "./images/10.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/11.jpg"
+        "image" : "./images/11.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/12.jpg"
+        "image" : "./images/12.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/13.jpg"
+        "image" : "./images/13.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/14.jpg"
+        "image" : "./images/14.jpg"
     },
     {
         "nombre" : "Project name",
         "categoria" : "Project type",
-        "image" : "./public/images/15.jpg"
+        "image" : "./images/15.jpg"
     }
 ]

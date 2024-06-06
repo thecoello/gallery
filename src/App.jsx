@@ -17,7 +17,7 @@ export default class App extends React.Component {
   }
 
   getData(){
-    fetch('./public/projects.JSON')
+    fetch('./projects.JSON')
     .then(res => res.json())
     .then(data => {
       this.setState({dataProjects: data})
