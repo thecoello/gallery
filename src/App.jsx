@@ -64,6 +64,9 @@ export default class App extends React.Component {
     tl.to('#brand-name-wrap', 1, { y: 0, delay: -1, ease: Expo.easeOut })
     tl.to('.loader-container', 1, {y: `${15}vh`, delay: -1, transformOrigin: 'right', ease: Expo.easeOut})
     tl.fromTo('.project', 1,{ y: 10, alpha: 0},{ y: 0, alpha: 1, ease: Expo.easeInOut, stagger: 0.1, delay: -1.5})
+    gsap.set('html',{overflow: 'auto'})
+    gsap.set('body',{overflow: 'auto'})
+
   }
 
   projects = () => {
