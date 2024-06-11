@@ -3,7 +3,17 @@ html {
   overflow: hidden;
 }
 
-html, body {
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html,
+body {
   background-color: #fafafa;
 }
 
@@ -31,22 +41,25 @@ html, body {
   overflow: hidden;
   position: absolute;
   transform: translateY(-15vh);
+  pointer-events: none;
 }
 .intro #brand-name-wrap #brand-name {
   transform: translateY(50vh);
   text-transform: uppercase;
   font-size: 15rem;
+  line-height: 10rem;
 }
 .intro .loader-container {
   position: absolute;
   width: 100%;
-  height: 0.1rem;
+  height: 1px;
   display: flex;
   background-color: #afafaf;
+  left: 0;
 }
 .intro .loader-container .loader {
   width: 0%;
-  height: 0.1rem;
+  height: 1px;
   background-color: #000000;
 }
 .intro .intro-text {
@@ -61,13 +74,12 @@ html, body {
 .portfolio-container .border-top {
   background-color: #afafaf;
   width: 100%;
-  height: 0.1rem;
+  height: 1px;
 }
 .portfolio-container .project {
   opacity: 0;
   height: -moz-max-content;
   height: max-content;
-  width: 16.6666666667vw;
   position: relative;
   margin: 1.5rem;
   display: flex;
@@ -89,7 +101,7 @@ html, body {
 }
 .portfolio-container .project .project-image {
   position: relative;
-  width: 16.6666666667vw;
+  width: 100%;
   height: 16.6666666667vw;
   -o-object-fit: cover;
      object-fit: cover;
@@ -97,4 +109,41 @@ html, body {
 .portfolio-container .project .project-image img {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 1450px) {
+  .portfolio-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .portfolio-container .project .project-image {
+    height: 20vw;
+  }
+  .intro #brand-name-wrap #brand-name {
+    font-size: 10rem;
+    line-height: 10rem;
+  }
+}
+@media (max-width: 900px) {
+  .portfolio-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .portfolio-container .project .project-image {
+    height: 25vw;
+  }
+  .intro #brand-name-wrap #brand-name {
+    font-size: 8rem;
+    line-height: 10rem;
+  }
+}
+@media (max-width: 500px) {
+  .portfolio-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .portfolio-container .project .project-image {
+    height: 90.9090909091vw;
+  }
+  .intro #brand-name-wrap #brand-name {
+    font-size: 5rem;
+    line-height: 10rem;
+  }
 }/*# sourceMappingURL=style.css.map */

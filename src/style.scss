@@ -5,78 +5,92 @@ $greyLight: #afafaf;
 
 $borderRadius: 20px;
 
-html{
+html {
     overflow: hidden;
 }
 
-html, body{
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html,
+body {
     background-color: $light;
 }
 
-*{
+* {
     margin: 0;
     font-family: "Sometype Mono", monospace;
 }
 
-.container{
+.container {
     width: 100vw
 }
 
-.intro{
+.intro {
     width: 100%;
     font-weight: 900;
-    display: flex;  
+    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
     background-color: $light;
     flex-direction: column;
-    
-    #brand-name-wrap{
+
+    #brand-name-wrap {
         opacity: 0;
         overflow: hidden;
         position: absolute;
         transform: translateY(-15vh);
-        #brand-name{
+        pointer-events: none;
+
+        #brand-name {
             transform: translateY(50vh);
             text-transform: uppercase;
             font-size: 15rem;
+            line-height: 10rem;
         }
     }
-    
-    .loader-container{
+
+    .loader-container {
         position: absolute;
         width: 100%;
-        height: 0.1rem;
+        height: 1px;
         display: flex;
         background-color: $greyLight;
-        .loader{
+        left: 0;
+
+        .loader {
             width: 0%;
-            height: 0.1rem;
+            height: 1px;
             background-color: #000000;
         }
     }
 
-    
-    .intro-text{
+    .intro-text {
         font-size: 20rem;
     }
 }
 
-.portfolio-container{
+.portfolio-container {
     padding: 2.5rem 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 
-    .border-top{
+    .border-top {
         background-color: $greyLight;
         width: 100%;
-        height: 0.1rem;
+        height: 1px;
     }
-    .project{
+
+    .project {
         opacity: 0;
         height: max-content;
-        width: calc(100vw / 6);
         position: relative;
         margin: 1.5rem;
         display: flex;
@@ -85,29 +99,100 @@ html, body{
         justify-content: end;
         cursor: pointer;
 
-        .project-text-wrap{
+        .project-text-wrap {
             width: 100%;
             padding: 1rem 0;
 
-            .project-title{
+            .project-title {
                 font-size: 1rem;
             }
-    
-            .project-type{
+
+            .project-type {
                 font-size: 0.8rem;
                 color: $greyLight;
             }
         }
 
-        .project-image{
+        .project-image {
             position: relative;
-            width: calc(100vw / 6);
+            width:  100%;
             height: calc(100vw / 6);
             object-fit: cover;
-            img{
+            img {
                 width: 100%;
                 height: 100%;
             }
         }
     }
+}
+
+@media (max-width: 1450px) {
+    .portfolio-container {
+        grid-template-columns: repeat(4, 1fr);
+
+        .project {
+            .project-image {
+                height: calc(100vw / 5);
+            }
+        }
+    }
+
+    .intro {
+    
+        #brand-name-wrap {
+    
+            #brand-name {
+                font-size: 10rem;
+                line-height: 10rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .portfolio-container {
+        grid-template-columns: repeat(3, 1fr);
+
+        .project {
+            .project-image {
+                height: calc(100vw / 4);
+            }
+        }
+    }
+
+    .intro {
+    
+        #brand-name-wrap {
+    
+            #brand-name {
+                font-size: 8rem;
+                line-height: 10rem;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 500px) {
+    .portfolio-container {
+        grid-template-columns: repeat(1, 1fr);
+
+        .project {
+            .project-image {
+                height: calc(100vw / 1.1);
+            }
+        }
+    }
+
+    .intro {
+    
+        #brand-name-wrap {
+    
+            #brand-name {
+                font-size: 5rem;
+                line-height: 10rem;
+            }
+        }
+    }
+    
 }
