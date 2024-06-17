@@ -79,6 +79,7 @@ body {
   width: 100%;
   align-items: center;
   justify-content: center;
+  visibility: hidden;
 }
 .footer #info {
   width: 30%;

@@ -81,6 +81,7 @@ export default class App extends React.Component {
       .fromTo('.project', 2, { scale: 1.02, alpha: 0 }, { scale: 1, transformOrigin: 'center center', alpha: 1, ease: Expo.easeInOut, stagger: 0.01 })
       .to('.nav', 2, { y: 0, alpha: 1, ease: Expo.easeInOut, delay: -2 })
       .set('html', { overflowY: 'scroll' })
+      .set('.footer', { visibility: 'visible' })
     this.menu()
   }
 
@@ -123,8 +124,6 @@ export default class App extends React.Component {
           <a className="menu-item" href="#">Contact</a>
         </div>
 
-
-
         <div id="loader-container">
           <div id="loader">
           </div>
@@ -143,7 +142,6 @@ export default class App extends React.Component {
             <a href="#">linkedin</a>
           </div>
         </div>
-
 
       </div>
     )
