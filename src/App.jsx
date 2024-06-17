@@ -1,5 +1,5 @@
 import React from "react"
-import { gsap, Power2, Expo, Linear } from "gsap";
+import { gsap, Expo } from "gsap";
 
 export default class App extends React.Component {
 
@@ -16,22 +16,22 @@ export default class App extends React.Component {
     this.getData()
   }
 
-  getData(){
+  getData() {
     fetch('./projects.JSON')
-    .then(res => res.json())
-    .then(data => {
-      this.setState({dataProjects: data})
-    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ dataProjects: data })
+      })
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if(prevState.dataProjects != this.state.dataProjects){
+    if (prevState.dataProjects != this.state.dataProjects) {
       this.projects()
     }
-    if(prevState.projectsArr.length != this.state.projectsArr.length){
+    if (prevState.projectsArr.length != this.state.projectsArr.length) {
       this.loadImages()
     }
-    if(prevState._imagesLoaded != this.state._imagesLoaded){
+    if (prevState._imagesLoaded != this.state._imagesLoaded) {
       this.animationStart()
     }
   }
@@ -46,9 +46,9 @@ export default class App extends React.Component {
       img.addEventListener('load', (e) => {
         imagesLoaded = imagesLoaded + 1
         loaded = 100 / imagesAvailable * imagesLoaded
-        gsap.to('.loader', 4, { width: `${loaded}%`, ease: Power2.easeInOut, transformOrigin: 'right', overwrite: true })
+        gsap.to('#loader', 4, { width: `${loaded}%`, ease: Expo.easeInOut, transformOrigin: 'right', overwrite: true })
 
-        if(loaded == 100){
+        if (loaded == 100) {
           this.setState({ _imagesLoaded: true })
         }
 
@@ -56,22 +56,35 @@ export default class App extends React.Component {
     })
   }
 
-  animationStart() {
-    let tl = new gsap.timeline()
-    tl.set('#brand-name-wrap', { alpha: 1 })
-    tl.to('#brand-name', 2, { y: `${0}vh`, ease: Expo.easeInOut, delay: 4.5 })
-    tl.fromTo('.intro', 2, { height: `${100}vh` }, { height: `${25}vh`, ease: Expo.easeInOut })
-    tl.to('#brand-name-wrap', 2, { y: 0, delay: -2, ease: Expo.easeInOut })
-    tl.to('.loader-container', 2, {y: `${15}vh`, delay: -2, transformOrigin: 'right', ease: Expo.easeInOut})
-    window.innerWidth < 900 ? tl.to('#brand-name', 2, {scale: 0.9, ease: Expo.easeInOut, delay: -2 }) : tl.to('#brand-name', 2, {scale: 0.8, ease: Expo.easeInOut, delay: -2 })
-    tl.fromTo('.project', 2,{ y: 10, alpha: 0},{ y: 0, alpha: 1, ease: Expo.easeInOut, stagger: 0.1, delay: -2.5})
-    tl.set('html',{overflowY: 'auto', delay: -2})
-    tl.fromTo('.project .border-top', 2,{ scaleX: 0},{ scaleX: 1, ease: Expo.easeInOut, transformOrigin: 'left', delay: -2})
-    tl.to('.loader', 2,{ alpha: 0, ease: Expo.easeInOut, delay: -2.5})
-    
+  menu() {
+    const btnMenu = document.querySelector('#menu-btn')
+    const goBack = document.querySelector('#goback')
+    let menuOpen = false
+
+    btnMenu.addEventListener('click', () => {
+      if (!menuOpen) {
+        gsap.to('#menu', 2, { translateX: 0, ease: Expo.easeInOut })
+        menuOpen = true
+      }
+    })
+
+    goBack.addEventListener('click', () => {
+      gsap.to('#menu', 2, { translateX: '100%', ease: Expo.easeInOut })
+      menuOpen = false
+    })
   }
 
-  projects(){
+  animationStart() {
+    let tl = gsap.timeline()
+    tl.to('#loader', { alpha: 0, delay: 4.5 })
+      .to('.portfolio-container', { alpha: 1, visibility: 'visible' })
+      .fromTo('.project', 2, { scale: 1.02, alpha: 0 }, { scale: 1, transformOrigin: 'center center', alpha: 1, ease: Expo.easeInOut, stagger: 0.01 })
+      .to('.nav', 2, { y: 0, alpha: 1, ease: Expo.easeInOut, delay: -2 })
+      .set('html', { overflowY: 'scroll' })
+    this.menu()
+  }
+
+  projects() {
     let projectsArr = []
     this.state.dataProjects.forEach((project, i) => {
       projectsArr.push(<div className="project" key={`${i}-project`}>
@@ -92,21 +105,46 @@ export default class App extends React.Component {
     return (
       <div className="container">
 
-        <div className="intro">
-          <div id="brand-name-wrap">
-            <h3 id="brand-name">Gallery</h3>
+        <div className="nav">
+          <div id="logo" className="nav-section">
+            <h1>Gallery</h1>
           </div>
-          <div className="loader-container">
-            <div className="loader">
-            </div>
+
+          <div id="menu-wrap" className="nav-section">
+            <span id="menu-btn">Menu</span>
+          </div>
+        </div>
+
+        <div id="menu">
+          <span id="goback"> Go Back</span>
+          <a className="menu-item" href="#">Home</a>
+          <a className="menu-item" href="#">Projects</a>
+          <a className="menu-item" href="#">About</a>
+          <a className="menu-item" href="#">Contact</a>
+        </div>
+
+
+
+        <div id="loader-container">
+          <div id="loader">
           </div>
         </div>
 
         <div className="portfolio-container">
-
           {this.state.projectsArr}
-
         </div>
+
+        <div className="footer">
+          <div id="info">
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ipsum arcu, tristique consectetur condimentum ut, lobortis non arcu. Nullam et est ut mi hendrerit porta. Vestibulum a aliquam nulla.</span>
+          </div>
+          <div id="social">
+            <a href="#">instagram</a>
+            <a href="#">linkedin</a>
+          </div>
+        </div>
+
+
       </div>
     )
   }
